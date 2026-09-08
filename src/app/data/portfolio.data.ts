@@ -279,6 +279,21 @@ export const PORTFOLIO_CONTENT_EN: PortfolioContent = {
           'Built strong patience, communication, and classroom management skills through daily student engagement.'
         ],
         techOrDomain: ['Programming Fundamentals', 'Game Development', 'Instructional Pedagogy', 'Technical Communication']
+      },
+      {
+        id: 'finishx-freelance',
+        role: 'Frontend Developer (Angular)',
+        company: 'FinishX – Saudi Corporate Website',
+        employmentType: 'Freelance',
+        period: '2025 – 2026',
+        location: 'Remote (Mostaqel Platform)',
+        icon: 'globe',
+        bullets: [
+          'Developed a responsive corporate website for a Saudi business client as a second branch portal, delivered through the Mostaqel freelance platform.',
+          'Built modern, fast-loading Angular interfaces adhering to client branding and commercial enterprise requirements.',
+          'Ensured cross-browser compatibility, mobile responsiveness, and clean component architecture for easy future maintenance.'
+        ],
+        techOrDomain: ['Angular', 'TypeScript', 'Responsive Design', 'SCSS', 'Freelance Delivery']
       }
     ]
   },
@@ -481,6 +496,21 @@ export const PORTFOLIO_CONTENT_AR: PortfolioContent = {
           'تطوير مهارات عالية في الصبر والتواصل وإدارة الصفوف من خلال التفاعل اليومي مع الطلاب.'
         ],
         techOrDomain: ['أساسيات البرمجة', 'تطوير الألعاب', 'طرق التدريس', 'التواصل التقني']
+      },
+      {
+        id: 'finishx-freelance',
+        role: 'مطور واجهات أمامية (Angular)',
+        company: 'FinishX – موقع مؤسسي لشركة سعودية',
+        employmentType: 'عمل حر (فريلانس)',
+        period: '2025 – 2026',
+        location: 'عن بُعد (منصة مستقل)',
+        icon: 'globe',
+        bullets: [
+          'تطوير موقع مؤسسي متجاوب لعميل سعودي كفرع ثانٍ لنفس المجموعة، عبر منصة مستقل للعمل الحر.',
+          'بناء واجهات Angular حديثة وسريعة التحميل مع الالتزام بالهوية البصرية للعميل ومتطلبات المشاريع التجارية.',
+          'ضمان التوافق مع مختلف المتصفحات والأجهزة المحمولة مع بنية مكونات نظيفة تسهّل الصيانة المستقبلية.'
+        ],
+        techOrDomain: ['Angular', 'TypeScript', 'تصميم متجاوب', 'SCSS', 'تسليم مشاريع حرة']
       }
     ]
   },
