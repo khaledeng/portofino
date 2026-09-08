@@ -88,9 +88,14 @@ import { IconComponent } from '../../shared/icons/icon.component';
       align-items: center;
       justify-content: space-between;
       flex-wrap: wrap;
-      gap: 0.75rem;
+      gap: 0.85rem;
       padding-top: 1rem;
       border-top: 1px solid rgba(255, 255, 255, 0.05);
+
+      @media (max-width: 540px) {
+        flex-direction: column;
+        align-items: stretch;
+      }
     }
 
     .status-indicator {
@@ -108,14 +113,20 @@ import { IconComponent } from '../../shared/icons/icon.component';
     .certs-link-btn {
       display: inline-flex;
       align-items: center;
+      justify-content: center;
       gap: 0.45rem;
-      font-size: 0.82rem;
+      font-size: 0.84rem;
       color: var(--text-secondary);
-      padding: 0.35rem 0.65rem;
+      padding: 0.45rem 0.85rem;
       border-radius: var(--radius-pill);
       border: 1px solid rgba(255, 255, 255, 0.08);
       background: rgba(255, 255, 255, 0.02);
       transition: all var(--transition-fast);
+
+      @media (max-width: 540px) {
+        width: 100%;
+        padding: 0.55rem 1rem;
+      }
 
       &:hover {
         color: var(--accent);

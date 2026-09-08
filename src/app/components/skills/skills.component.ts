@@ -138,11 +138,16 @@ import { IconComponent } from '../../shared/icons/icon.component';
       background: rgba(0, 229, 153, 0.08);
       border: 1px solid rgba(0, 229, 153, 0.2);
       transition: all var(--transition-fast);
+      white-space: nowrap;
 
       &:hover {
         background: var(--accent);
         color: var(--text-inverse);
         border-color: var(--accent);
+      }
+
+      @media (max-width: 540px) {
+        display: none;
       }
     }
 
