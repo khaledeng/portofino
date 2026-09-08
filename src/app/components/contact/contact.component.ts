@@ -216,9 +216,7 @@ import { IconComponent } from '../../shared/icons/icon.component';
       font-size: 0.9rem;
       font-weight: 500;
       color: var(--text-primary);
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
+      word-break: break-all;
     }
 
     .copy-action {
@@ -227,6 +225,7 @@ import { IconComponent } from '../../shared/icons/icon.component';
       display: flex;
       align-items: center;
       justify-content: center;
+      flex-shrink: 0;
     }
 
     .social-links-row {
@@ -234,6 +233,11 @@ import { IconComponent } from '../../shared/icons/icon.component';
       gap: 0.85rem;
       align-items: center;
       margin-top: 0.15rem;
+
+      @media (max-width: 380px) {
+        flex-direction: column;
+        width: 100%;
+      }
     }
 
     .contact-social-link {

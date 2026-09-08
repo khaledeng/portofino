@@ -31,9 +31,14 @@
   gap: 0.75rem;
   font-family: var(--font-heading);
   font-weight: 700;
-  font-size: 1.05rem;
-  letter-spacing: 0.08em;
+  font-size: clamp(0.88rem, 2.5vw, 1.05rem);
+  letter-spacing: 0.06em;
   color: var(--text-primary);
+  min-width: 0;
+
+  @media (max-width: 480px) {
+    gap: 0.5rem;
+  }
 
   &:hover .brand-monogram {
     transform: scale(1.05);
@@ -53,10 +58,18 @@
   border: 1px solid rgba(0, 229, 153, 0.3);
   color: var(--accent);
   transition: all var(--transition-fast);
+  flex-shrink: 0;
 }
 
 .brand-name {
   white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 240px;
+
+  @media (max-width: 380px) {
+    max-width: 160px;
+  }
 }
 
 /* Desktop navigation */

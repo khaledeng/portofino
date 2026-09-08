@@ -122,6 +122,10 @@ import { IconComponent } from '../../shared/icons/icon.component';
       align-items: center;
       justify-content: center;
       padding: 1.5rem;
+
+      @media (max-width: 600px) {
+        padding: 0.75rem;
+      }
     }
 
     .modal-dialog {
@@ -136,6 +140,12 @@ import { IconComponent } from '../../shared/icons/icon.component';
       padding: 2rem;
       overflow-y: auto;
       box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8), 0 0 30px rgba(0, 229, 153, 0.1);
+
+      @media (max-width: 600px) {
+        padding: 1.25rem 1rem;
+        border-radius: var(--radius-md);
+        max-height: 92vh;
+      }
     }
 
     .modal-header {
@@ -276,6 +286,16 @@ import { IconComponent } from '../../shared/icons/icon.component';
       padding-top: 1.5rem;
       border-top: 1px solid var(--border-color);
       margin-top: 1.75rem;
+
+      @media (max-width: 600px) {
+        flex-direction: column;
+        width: 100%;
+
+        .modal-btn {
+          width: 100%;
+          justify-content: center;
+        }
+      }
     }
 
     .modal-btn {

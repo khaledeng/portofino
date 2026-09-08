@@ -29,6 +29,10 @@ import { IconComponent } from '../../shared/icons/icon.component';
   styles: [`
     .highlights-section {
       padding: 1.5rem 0 2.5rem;
+
+      @media (max-width: 768px) {
+        padding: 0.5rem 0 1.5rem;
+      }
     }
 
     .highlights-grid {
@@ -42,6 +46,7 @@ import { IconComponent } from '../../shared/icons/icon.component';
 
       @media (max-width: 600px) {
         grid-template-columns: 1fr;
+        gap: 0.85rem;
       }
     }
 
@@ -54,6 +59,11 @@ import { IconComponent } from '../../shared/icons/icon.component';
       border: 1px solid var(--border-color);
       border-radius: var(--radius-md);
       transition: all var(--transition-fast);
+
+      @media (max-width: 600px) {
+        padding: 1rem 1.15rem;
+        gap: 0.9rem;
+      }
 
       &:hover {
         border-color: rgba(0, 229, 153, 0.4);
@@ -87,21 +97,17 @@ import { IconComponent } from '../../shared/icons/icon.component';
 
     .stat-title {
       font-family: var(--font-heading);
-      font-size: 1.12rem;
+      font-size: 1.08rem;
       font-weight: 700;
       color: var(--text-primary);
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
+      line-height: 1.35;
       margin: 0;
     }
 
     .stat-subtitle {
-      font-size: 0.85rem;
+      font-size: 0.84rem;
       color: var(--text-secondary);
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
+      line-height: 1.4;
       margin: 0;
     }
   `]
