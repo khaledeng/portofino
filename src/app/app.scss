@@ -1,0 +1,45 @@
+.main-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.bento-section {
+  padding: 0.5rem 0 2rem;
+}
+
+.bento-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* Top Row: 3 Equal Bento Cards */
+.bento-row-top {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  align-items: stretch;
+
+  @media (max-width: 1100px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Bottom Row: 2 Bento Cards (Experience & Contact) */
+.bento-row-bottom {
+  display: grid;
+  grid-template-columns: 1.12fr 0.88fr;
+  gap: 1.5rem;
+  align-items: stretch;
+
+  @media (max-width: 1100px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.bento-col {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}

@@ -1,0 +1,123 @@
+<!-- Sticky Header -->
+<app-navbar
+  [brandName]="content().nav.brandName"
+  [links]="content().nav.links"
+  [downloadCvText]="content().nav.downloadCv"
+  [cvUrl]="personalInfo.cvUrl"
+  [currentLang]="currentLang()"
+  (langChange)="onLanguageChange($event)"
+  (openEducation)="onOpenEducationCerts()"
+></app-navbar>
+
+<main class="main-content">
+  <!-- Hero Section -->
+  <app-hero
+    [info]="personalInfo"
+    [firstName]="content().hero.firstName"
+    [highlightName]="content().hero.highlightName"
+    [lastName]="content().hero.lastName"
+    [greeting]="content().hero.greeting"
+    [rolesText]="content().hero.rolesText"
+    [bioText]="content().hero.bioText"
+    [viewProjectsBtn]="content().hero.viewProjectsBtn"
+    [contactBtn]="content().hero.contactBtn"
+    [floatingBadges]="content().hero.floatingBadges"
+  ></app-hero>
+
+  <!-- 4 Highlights / Stats Cards Row -->
+  <app-highlights
+    [stats]="content().highlights"
+  ></app-highlights>
+
+  <!-- Bento Grid Section matching Screenshot Layout -->
+  <section class="bento-section" aria-label="Portfolio Main Cards">
+    <div class="container bento-container">
+      <!-- Top Bento Row: 3 Equal Columns (About, Skills, Projects) -->
+      <div class="bento-row bento-row-top">
+        <!-- About Me Card -->
+        <div class="bento-col">
+          <app-about
+            [title]="content().about.title"
+            [paragraphs]="content().about.paragraphs"
+            [statusBadge]="content().about.statusBadge"
+            [viewCertsText]="currentLang() === 'en' ? 'Education & Certs' : 'التعليم والشهادات'"
+            (openCertificates)="onOpenEducationCerts()"
+          ></app-about>
+        </div>
+
+        <!-- Technical Skills Card -->
+        <div class="bento-col">
+          <app-skills
+            [title]="content().skills.title"
+            [filterAll]="content().skills.filterAll"
+            [categories]="content().skills.categories"
+            [currentLang]="currentLang()"
+          ></app-skills>
+        </div>
+
+        <!-- Projects Card -->
+        <div class="bento-col">
+          <app-projects
+            [title]="content().projects.title"
+            [viewAllText]="content().projects.viewAll"
+            [projects]="content().projects.items"
+            (selectProject)="onSelectProject($event)"
+            (openAllProjects)="onSelectProject(content().projects.items[0])"
+          ></app-projects>
+        </div>
+      </div>
+
+      <!-- Bottom Bento Row: 2 Columns (Experience, Contact) -->
+      <div class="bento-row bento-row-bottom">
+        <!-- Experience Card -->
+        <div class="bento-col bento-col-experience">
+          <app-experience
+            [title]="content().experience.title"
+            [items]="content().experience.items"
+          ></app-experience>
+        </div>
+
+        <!-- Contact Card -->
+        <div class="bento-col bento-col-contact">
+          <app-contact
+            [title]="content().contact.title"
+            [subtitle]="content().contact.subtitle"
+            [info]="personalInfo"
+            [emailLabel]="content().contact.emailLabel"
+            [phoneLabel]="content().contact.phoneLabel"
+            [locationLabel]="content().contact.locationLabel"
+            [locationValue]="content().contact.locationValue"
+            [copyTooltip]="content().contact.copyTooltip"
+            [copiedTooltip]="content().contact.copiedTooltip"
+          ></app-contact>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- Footer -->
+<app-footer
+  [copyright]="content().footer.copyright"
+  [builtWith]="content().footer.builtWith"
+  [motto]="content().footer.motto"
+></app-footer>
+
+<!-- Interactive Project Details Modal -->
+@if (selectedProject()) {
+  <app-project-modal
+    [project]="selectedProject()"
+    [currentLang]="currentLang()"
+    (close)="onCloseProjectModal()"
+  ></app-project-modal>
+}
+
+<!-- Education & Certifications Modal -->
+<app-education-certs
+  [isOpen]="isEducationCertsOpen()"
+  [title]="content().education.title"
+  [certsTitle]="content().education.certificationsTitle"
+  [degrees]="content().education.degrees"
+  [certifications]="content().education.certifications"
+  (close)="onCloseEducationCerts()"
+></app-education-certs>

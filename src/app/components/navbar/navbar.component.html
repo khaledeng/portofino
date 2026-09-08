@@ -1,0 +1,114 @@
+<header class="navbar-header" [class.scrolled]="isScrolled">
+  <div class="container navbar-container">
+    <!-- Brand Monogram + Name -->
+    <a href="#hero" class="brand-link" (click)="scrollToSection('#hero'); $event.preventDefault()">
+      <div class="brand-monogram">
+        <app-icon name="logo" [size]="20" strokeMode="#00e599" [strokeWidth]="2.5"></app-icon>
+      </div>
+      <span class="brand-name">{{ brandName }}</span>
+    </a>
+
+    <!-- Desktop Navigation Links -->
+    <nav class="desktop-nav" aria-label="Main Navigation">
+      <ul class="nav-list">
+        @for (link of links; track link.id) {
+          <li class="nav-item">
+            <a
+              [href]="link.href"
+              class="nav-link"
+              [class.active]="activeSection === link.id || (link.id === 'home' && (activeSection === 'home' || activeSection === 'hero'))"
+              (click)="scrollToSection(link.href); $event.preventDefault()"
+            >
+              {{ link.label }}
+              @if (activeSection === link.id || (link.id === 'home' && (activeSection === 'home' || activeSection === 'hero'))) {
+                <span class="active-indicator"></span>
+              }
+            </a>
+          </li>
+        }
+      </ul>
+    </nav>
+
+    <!-- Header Actions (Language Toggle + Download CV) -->
+    <div class="header-actions">
+      <!-- Language Switcher -->
+      <button
+        type="button"
+        class="lang-btn"
+        (click)="toggleLanguage()"
+        [attr.aria-label]="currentLang === 'en' ? 'Switch to Arabic' : 'Switch to English'"
+        [title]="currentLang === 'en' ? 'التحويل للعربية' : 'Switch to English'"
+      >
+        <app-icon name="translate" [size]="16" strokeMode="currentColor"></app-icon>
+        <span class="lang-text">{{ currentLang === 'en' ? 'AR' : 'EN' }}</span>
+      </button>
+
+      <!-- Download CV Button -->
+      <button
+        type="button"
+        class="cv-btn"
+        aria-label="Download CV"
+        (click)="downloadCv()"
+      >
+        <app-icon name="download" [size]="16" strokeMode="currentColor" [strokeWidth]="2"></app-icon>
+        <span>{{ downloadCvText }}</span>
+      </button>
+
+      <!-- Mobile Hamburger Button -->
+      <button
+        type="button"
+        class="mobile-toggle"
+        (click)="toggleMobileMenu()"
+        [attr.aria-expanded]="isMobileMenuOpen"
+        aria-label="Toggle navigation menu"
+      >
+        <app-icon [name]="isMobileMenuOpen ? 'close' : 'menu'" [size]="24" strokeMode="currentColor"></app-icon>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile Drawer / Menu -->
+  @if (isMobileMenuOpen) {
+    <div class="mobile-drawer animate-fade-in" role="dialog" aria-modal="true">
+      <div class="mobile-drawer-header">
+        <span class="mobile-brand">{{ brandName }}</span>
+        <button type="button" class="mobile-close-btn" (click)="closeMobileMenu()" aria-label="Close menu">
+          <app-icon name="close" [size]="22" strokeMode="currentColor"></app-icon>
+        </button>
+      </div>
+
+      <nav class="mobile-nav">
+        <ul>
+          @for (link of links; track link.id) {
+            <li>
+              <a
+                [href]="link.href"
+                class="mobile-link"
+                [class.active]="activeSection === link.id || (link.id === 'home' && (activeSection === 'home' || activeSection === 'hero'))"
+                (click)="scrollToSection(link.href); $event.preventDefault()"
+              >
+                {{ link.label }}
+              </a>
+            </li>
+          }
+        </ul>
+      </nav>
+
+      <div class="mobile-drawer-footer">
+        <button
+          type="button"
+          class="mobile-cv-btn"
+          (click)="downloadCv(); closeMobileMenu()"
+        >
+          <app-icon name="download" [size]="18" strokeMode="currentColor"></app-icon>
+          <span>{{ downloadCvText }}</span>
+        </button>
+
+        <button type="button" class="mobile-lang-btn" (click)="toggleLanguage(); closeMobileMenu()">
+          <app-icon name="translate" [size]="18" strokeMode="currentColor"></app-icon>
+          <span>{{ currentLang === 'en' ? 'العربية (Arabic)' : 'English (الإنجليزية)' }}</span>
+        </button>
+      </div>
+    </div>
+  }
+</header>

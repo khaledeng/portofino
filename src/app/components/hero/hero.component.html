@@ -1,0 +1,121 @@
+<section id="hero" class="hero-section">
+  <div class="container hero-container">
+    <!-- Left Column: Content & Intro -->
+    <div class="hero-content">
+      <!-- Greeting Tag with Accent Line -->
+      <div class="greeting-row">
+        <span class="greeting-text">{{ greeting }}</span>
+        <span class="greeting-line"></span>
+      </div>
+
+      <!-- Main Headline: Khaled Ahmed Ezzat / خالد أحمد عزت -->
+      <h1 class="hero-name">
+        <span class="first-name">{{ firstName }}</span>
+        <span class="highlight-name">{{ highlightName }}</span>
+        <span class="last-name">{{ lastName }}</span>
+      </h1>
+
+      <!-- Professional Subtitle -->
+      <p class="hero-subtitle">
+        {{ rolesText }}
+      </p>
+
+      <!-- Professional Summary from CV -->
+      <p class="hero-bio">
+        {{ bioText }}
+      </p>
+
+      <!-- Primary Call-to-Action Buttons -->
+      <div class="hero-actions">
+        <button type="button" class="btn-primary" (click)="scrollToSection('projects')">
+          <app-icon name="code" [size]="18" strokeMode="currentColor" [strokeWidth]="2.5"></app-icon>
+          <span>{{ viewProjectsBtn }}</span>
+        </button>
+
+        <button type="button" class="btn-secondary" (click)="scrollToSection('contact')">
+          <app-icon name="mail" [size]="18" strokeMode="currentColor"></app-icon>
+          <span>{{ contactBtn }}</span>
+        </button>
+      </div>
+
+      <!-- Social Profile Links -->
+      <div class="hero-socials">
+        <a
+          [href]="info.socials.github"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="social-pill"
+          aria-label="GitHub Profile"
+        >
+          <app-icon name="github" [size]="18"></app-icon>
+          <span>GitHub</span>
+        </a>
+
+        <a
+          [href]="info.socials.linkedin"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="social-pill"
+          aria-label="LinkedIn Profile"
+        >
+          <app-icon name="linkedin" [size]="18"></app-icon>
+          <span>LinkedIn</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Right Column: Visual Portrait with Tech Constellation Background -->
+    <div class="hero-visual">
+      <!-- Background Constellation Network Lines -->
+      <div class="constellation-bg" aria-hidden="true">
+        <svg viewBox="0 0 500 500" class="constellation-svg" preserveAspectRatio="none">
+          <defs>
+            <linearGradient id="lineGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#00e599" stop-opacity="0.5"/>
+              <stop offset="100%" stop-color="#10b981" stop-opacity="0.1"/>
+            </linearGradient>
+          </defs>
+          <!-- Horizontal accent line -->
+          <line x1="0" y1="200" x2="500" y2="200" stroke="#00e599" stroke-opacity="0.4" stroke-width="1.5" />
+          
+          <!-- Geometric polygon lines -->
+          <line x1="30" y1="120" x2="110" y2="200" stroke="url(#lineGrad)" stroke-width="1.2" />
+          <line x1="110" y1="200" x2="60" y2="310" stroke="url(#lineGrad)" stroke-width="1.2" />
+          <line x1="60" y1="310" x2="130" y2="380" stroke="url(#lineGrad)" stroke-width="1.2" />
+          <line x1="380" y1="80" x2="460" y2="160" stroke="url(#lineGrad)" stroke-width="1.2" />
+          <line x1="460" y1="160" x2="420" y2="270" stroke="url(#lineGrad)" stroke-width="1.2" />
+          <line x1="420" y1="270" x2="480" y2="350" stroke="url(#lineGrad)" stroke-width="1.2" />
+          
+          <!-- Glowing Node Dots -->
+          <circle cx="30" cy="120" r="3" fill="#00e599" />
+          <circle cx="110" cy="200" r="4" fill="#00e599" />
+          <circle cx="60" cy="310" r="3" fill="#00e599" />
+          <circle cx="130" cy="380" r="3.5" fill="#00e599" />
+          <circle cx="380" cy="80" r="3.5" fill="#00e599" />
+          <circle cx="460" cy="160" r="4" fill="#00e599" />
+          <circle cx="420" cy="270" r="3" fill="#00e599" />
+          <circle cx="480" cy="350" r="3.5" fill="#00e599" />
+        </svg>
+      </div>
+
+      <!-- Portrait Image Container -->
+      <div class="photo-card">
+        <img
+          [src]="info.photoUrl"
+          [alt]="info.name + ' - Professional Portrait'"
+          class="profile-img"
+          loading="eager"
+          fetchpriority="high"
+        />
+        <div class="photo-border-glow"></div>
+      </div>
+
+      <!-- Floating Motivational Labels (Build • Learn • Grow) -->
+      <div class="floating-motto" aria-hidden="true">
+        <div class="motto-item motto-build">{{ floatingBadges[0] || 'Build' }}</div>
+        <div class="motto-item motto-learn">{{ floatingBadges[1] || 'Learn' }}</div>
+        <div class="motto-item motto-grow">{{ floatingBadges[2] || 'Grow' }}</div>
+      </div>
+    </div>
+  </div>
+</section>
