@@ -14,11 +14,11 @@ import { IconComponent } from '../../shared/icons/icon.component';
           <!-- Header -->
           <div class="modal-header">
             <div class="header-left">
-              <div class="modal-badge">Credentials</div>
+              <div class="modal-badge">{{ currentLang === 'ar' ? 'المؤهلات والشهادات' : 'Credentials' }}</div>
               <h2 id="certs-modal-title" class="modal-title">{{ title }}</h2>
             </div>
 
-            <button type="button" class="close-btn" (click)="close.emit()" aria-label="Close credentials modal">
+            <button type="button" class="close-btn" (click)="close.emit()" [attr.aria-label]="currentLang === 'ar' ? 'إغلاق نافذة المؤهلات' : 'Close credentials modal'">
               <app-icon name="close" [size]="20" strokeMode="currentColor"></app-icon>
             </button>
           </div>
@@ -29,7 +29,7 @@ import { IconComponent } from '../../shared/icons/icon.component';
             <section class="section-group">
               <h3 class="group-title">
                 <app-icon name="graduation-cap" [size]="20" strokeMode="#00e599"></app-icon>
-                <span>Higher Education & Diplomas</span>
+                <span>{{ currentLang === 'ar' ? 'التعليم الجامعي والدبلومات' : 'Higher Education & Diplomas' }}</span>
               </h3>
 
               <div class="items-stack">
@@ -45,9 +45,9 @@ import { IconComponent } from '../../shared/icons/icon.component';
 
                     @if (edu.graduationProject) {
                       <div class="grad-project-box">
-                        <span class="grad-label">Graduation Project:</span>
+                        <span class="grad-label">{{ currentLang === 'ar' ? 'مشروع التخرج:' : 'Graduation Project:' }}</span>
                         <span class="grad-name">{{ edu.graduationProject.name }}</span>
-                        <span class="grad-grade">Grade: {{ edu.graduationProject.grade }}</span>
+                        <span class="grad-grade">{{ currentLang === 'ar' ? ('التقدير: ' + edu.graduationProject.grade) : ('Grade: ' + edu.graduationProject.grade) }}</span>
                       </div>
                     }
 
@@ -85,7 +85,7 @@ import { IconComponent } from '../../shared/icons/icon.component';
                     </div>
 
                     @if (cert.score) {
-                      <div class="score-badge">Official Score: {{ cert.score }}</div>
+                      <div class="score-badge">{{ currentLang === 'ar' ? cert.score : ('Official Score: ' + cert.score) }}</div>
                     }
 
                     <ul class="highlights-list">
@@ -111,7 +111,7 @@ import { IconComponent } from '../../shared/icons/icon.component';
           <!-- Footer -->
           <div class="modal-footer">
             <button type="button" class="modal-btn primary" (click)="close.emit()">
-              <span>Close</span>
+              <span>{{ currentLang === 'ar' ? 'إغلاق' : 'Close' }}</span>
             </button>
           </div>
         </div>
@@ -380,6 +380,7 @@ import { IconComponent } from '../../shared/icons/icon.component';
 })
 export class EducationCertsComponent {
   @Input() isOpen: boolean = false;
+  @Input() currentLang: 'en' | 'ar' = 'en';
   @Input() title: string = 'Education & Certifications';
   @Input() certsTitle: string = 'Certifications & Professional Programs';
   @Input() degrees: EducationItem[] = [];

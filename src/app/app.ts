@@ -67,6 +67,16 @@ export class App implements OnInit {
       window.localStorage.setItem('portfolio_lang', lang);
     }
     this.seoService.updateLanguageAndMeta(lang);
+
+    // If a project modal is currently open, switch it to the corresponding language item
+    const current = this.selectedProject();
+    if (current) {
+      const activeContent = lang === 'en' ? PORTFOLIO_CONTENT_EN : PORTFOLIO_CONTENT_AR;
+      const matched = activeContent.projects.items.find(p => p.id === current.id);
+      if (matched) {
+        this.selectedProject.set(matched);
+      }
+    }
   }
 
   onSelectProject(project: ProjectItem): void {

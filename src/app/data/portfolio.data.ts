@@ -444,40 +444,160 @@ export const PORTFOLIO_CONTENT_AR: PortfolioContent = {
   skills: {
     title: 'المهارات التقنية',
     filterAll: 'جميع المهارات',
-    categories: PORTFOLIO_CONTENT_EN.skills.categories
+    categories: [
+      {
+        id: 'frontend',
+        label: 'الواجهة الأمامية',
+        skills: [
+          { name: 'Angular', category: 'frontend', iconType: 'angular', highlight: true },
+          { name: 'TypeScript', category: 'frontend', iconType: 'typescript', highlight: true },
+          { name: 'Reactive Forms', category: 'frontend', iconType: 'angular' },
+          { name: 'دعم اللغات (i18n)', category: 'frontend', iconType: 'i18n' },
+          { name: 'JavaScript (ES6+)', category: 'frontend', iconType: 'javascript' },
+          { name: 'HTML5', category: 'frontend', iconType: 'html5' },
+          { name: 'CSS3 / SCSS', category: 'frontend', iconType: 'css3' },
+          { name: 'Bootstrap', category: 'frontend', iconType: 'bootstrap' }
+        ]
+      },
+      {
+        id: 'backend',
+        label: 'الواجهة الخلفية',
+        skills: [
+          { name: 'C#', category: 'backend', iconType: 'csharp', highlight: true },
+          { name: '.NET Core', category: 'backend', iconType: 'dotnet', highlight: true },
+          { name: 'ASP.NET Core Web API', category: 'backend', iconType: 'dotnet', highlight: true },
+          { name: 'REST APIs', category: 'backend', iconType: 'api' },
+          { name: 'JWT Authentication', category: 'backend', iconType: 'jwt' }
+        ]
+      },
+      {
+        id: 'database',
+        label: 'قواعد البيانات',
+        skills: [
+          { name: 'SQL Server', category: 'database', iconType: 'sqlserver', highlight: true },
+          { name: 'MySQL', category: 'database', iconType: 'mysql' },
+          { name: 'Entity Framework Core', category: 'database', iconType: 'dotnet' },
+          { name: 'T-SQL', category: 'database', iconType: 'database' },
+          { name: 'تصميم قواعد البيانات العلائقية', category: 'database', iconType: 'database' },
+          { name: 'تخطيط ونمذجة البيانات', category: 'database', iconType: 'database' }
+        ]
+      },
+      {
+        id: 'networking',
+        label: 'الشبكات',
+        skills: [
+          { name: 'شبكات CCNA', category: 'networking', iconType: 'network', highlight: true },
+          { name: 'التوجيه والتبديل (Routing & Switching)', category: 'networking', iconType: 'network' },
+          { name: 'تصميم شبكات LAN', category: 'networking', iconType: 'network' },
+          { name: 'عنونة IP وتقسيم الشبكات (Subnetting)', category: 'networking', iconType: 'network' },
+          { name: 'تهيئة وتكوين الـ VLANs', category: 'networking', iconType: 'network' },
+          { name: 'التوجيه الثابت والديناميكي', category: 'networking', iconType: 'network' },
+          { name: 'Cisco Packet Tracer', category: 'networking', iconType: 'cisco' },
+          { name: 'استكشاف وإصلاح أخطاء الشبكات', category: 'networking', iconType: 'network' }
+        ]
+      },
+      {
+        id: 'ai',
+        label: 'الذكاء الاصطناعي',
+        skills: [
+          { name: 'أساسيات الذكاء الاصطناعي التوليدي', category: 'ai', iconType: 'ai' },
+          { name: 'شهادة HCIA-AI (Huawei / NTI)', category: 'ai', iconType: 'ai', highlight: true }
+        ]
+      },
+      {
+        id: 'tools',
+        label: 'اللغات والأدوات',
+        skills: [
+          { name: 'Git / GitHub', category: 'tools', iconType: 'github', highlight: true },
+          { name: 'Node.js', category: 'tools', iconType: 'nodejs' },
+          { name: 'Python', category: 'tools', iconType: 'python' },
+          { name: 'Visual Studio', category: 'tools', iconType: 'visualstudio' },
+          { name: 'VS Code', category: 'tools', iconType: 'vscode' }
+        ]
+      }
+    ]
   },
   projects: {
     title: 'المشاريع',
     viewAll: 'عرض الكل',
-    items: PORTFOLIO_CONTENT_EN.projects.items.map(item => {
-      if (item.id === 'arena-gym') {
-        return {
-          ...item,
-          title: 'نظام Arena – إدارة الصالات الرياضية الذكي',
-          summary: 'تصميم منصة متكاملة تشمل مصادقة JWT، وتسجيل الدخول عبر رمز QR، ومعالجة المدفوعات.',
-          description: 'نظام متكامل لإدارة الصالات الرياضية يتضمن بوابات للمشتركين ولوحات تحكم إدارية لتسجيل الأعضاء وإدارة الاشتراكات وجداول المدربين بدعم كامل للغتين العربية والإنجليزية.'
-        };
-      }
-      if (item.id === 'ecommerce-backend') {
-        return {
-          ...item,
-          title: 'مطور خلفي .NET – مشروع التجارة الإلكترونية',
-          summary: 'بناء واجهات برمجية RESTful لنقاط نهاية الطلبات والمنتجات والتصنيفات والمصادقة.'
-        };
-      }
-      if (item.id === 'finishx-corporate') {
-        return {
-          ...item,
-          title: 'FinishX – موقع مؤسسي لشركة سعودية',
-          summary: 'تطوير موقع مؤسسي متجاوب مبني بتقنية Angular لعميل سعودي عبر منصة مستقل كفرع ثانٍ لنفس المجموعة.'
-        };
-      }
-      return {
-        ...item,
+    items: [
+      {
+        id: 'arena-gym',
+        title: 'نظام Arena – إدارة الصالات الرياضية الذكي',
+        category: 'تطبيق ويب متكامل (Full-Stack)',
+        type: 'مشروع تخرج معهد ITI',
+        summary: 'تصميم منصة متكاملة تشمل مصادقة JWT، وتسجيل الدخول عبر رمز QR، ومعالجة المدفوعات.',
+        description: 'نظام متكامل لإدارة الصالات الرياضية يتضمن بوابات للمشتركين ولوحات تحكم إدارية لتسجيل الأعضاء وإدارة الاشتراكات وجداول المدربين بدعم كامل للغتين العربية والإنجليزية.',
+        techStack: ['Angular', 'TypeScript', 'Reactive Forms', 'i18n', 'ASP.NET Core Web API', 'SQL Server', 'JWT'],
+        features: [
+          'تصميم وبناء منصة متكاملة مع مصادقة JWT الآمنة ونظام الصلاحيات والأدوار',
+          'دمج تسجيل الدخول السريع عبر رمز QR ومعالجة المدفوعات آلياً',
+          'بناء لوحات تحكم تفاعلية بتقنية Angular للمشتركين والإدارة لمتابعة الاشتراكات وجداول المدربين',
+          'استخدام Angular Reactive Forms للتحقق المتقدم والدقيق من صحة مدخلات المستخدمين',
+          'تطبيق دعم تعدد اللغات (i18n) بالكامل باللغتين العربية والإنجليزية',
+          'ربط واجهة Angular مع واجهات برمجية خلفية قوية مبنية بـ ASP.NET Core وقاعدة بيانات SQL Server'
+        ],
+        icon: 'barbell',
+        githubUrl: 'https://github.com/rwidagaber/Arena-Frontend',
+        githubFrontendUrl: 'https://github.com/rwidagaber/Arena-Frontend',
+        githubBackendUrl: 'https://github.com/rwidagaber/Arena-Backend'
+      },
+      {
+        id: 'ecommerce-backend',
+        title: 'مطور خلفي .NET – مشروع التجارة الإلكترونية',
+        category: 'بنية الواجهة الخلفية وواجهات REST API',
+        type: 'مشروع تدريبي بمعهد ITI',
+        date: 'فبراير 2026',
+        summary: 'بناء واجهات برمجية RESTful لنقاط نهاية الطلبات والمنتجات والتصنيفات والمصادقة.',
+        description: 'نظام خلفي متكامل وقابل للتوسع مبني بإطار .NET ومصمم وفق مبادئ العمارة النظيفة وتقنية Entity Framework Core مع قاعدة بيانات SQL Server.',
+        techStack: ['C#', '.NET Core', 'ASP.NET Core Web API', 'SQL Server', 'EF Core', 'JWT'],
+        features: [
+          'بناء واجهات برمجية RESTful عالية الأداء لوحدات الطلبات والمنتجات والفئات والمصادقة',
+          'تصميم نماذج بيانات نظيفة والعلاقات والقيود باستخدام Entity Framework Core و SQL Server',
+          'تطبيق المصادقة المشفرة وحماية نقاط النهاية باستخدام رموز JWT',
+          'تصميم وحدات التحكم والخدمات بنظام معياري يضمن أقصى درجات المرونة وسهولة الصيانة'
+        ],
+        icon: 'cart',
+        githubUrl: 'https://github.com/khaled-ezzat'
+      },
+      {
+        id: 'finishx-corporate',
+        title: 'FinishX – موقع مؤسسي لشركة سعودية',
+        category: 'تطوير الواجهة الأمامية (عمل حر)',
+        type: 'عمل حر (منصة مستقل)',
+        date: '2025 – 2026',
+        client: 'عميل سعودي (مستقل)',
+        summary: 'تطوير موقع مؤسسي متجاوب مبني بتقنية Angular لعميل سعودي عبر منصة مستقل كفرع ثانٍ لنفس المجموعة.',
+        description: 'موقع مؤسسي احترافي متجاوب تم تطويره وتسليمه لعميل أعمال سعودي كفرع ثانٍ لنفس الشركة عبر منصة مستقل، مصمم ليلائم متطلبات المؤسسات التجارية في المملكة العربية السعودية.',
+        techStack: ['Angular', 'TypeScript', 'تصميم متجاوب', 'HTML5', 'CSS3/SCSS'],
+        features: [
+          'تطوير واجهات ويب مؤسسية عصرية وسريعة التحميل لشركة أعمال سعودية',
+          'تسليم بوابة فرع رقمي متوافقة بالكامل مع الهوية البصرية للعميل',
+          'تحسين سرعة التحميل والتوافق التام مع مختلف المتصفحات والشاشات الذكية',
+          'بناء هيكلية مكونات Angular نظيفة تسهل التحديثات المستقبلية'
+        ],
+        icon: 'globe',
+        liveUrl: 'https://finish-x.vercel.app/'
+      },
+      {
+        id: 'networking-labs',
         title: 'مختبرات شبكات جامعية (Cisco Packet Tracer)',
-        summary: 'تصميم ومحاكاة طبولوجيا الشبكات المحلية بما يشمل العنونة والتوجيه الثابت والديناميكي وتكوين VLANs.'
-      };
-    })
+        category: 'هندسة ومحاكاة الشبكات',
+        type: 'مقررات أكاديمية جامعية',
+        summary: 'تصميم ومحاكاة طبولوجيا الشبكات المحلية بما يشمل العنونة والتوجيه الثابت والديناميكي وتكوين VLANs.',
+        description: 'مشاريع هندسة ومحاكاة شبكات متقدمة تم تنفيذها باستخدام Cisco Packet Tracer ضمن مقررات شبكات 1 و 2 والدراسة الذاتية لمنهج CCNA.',
+        techStack: ['Cisco Packet Tracer', 'Routing & Switching', 'VLANs', 'Subnetting', 'CLI Config'],
+        features: [
+          'تصميم ومحاكاة طبولوجيا شبكات المؤسسات المحلية وتطبيق الهيكل الهرمي للشبكات',
+          'ضبط مخططات عنونة IP وتقسيم الشبكات (VLSM & Subnetting) بدقة',
+          'تطبيق والتحقق من بروتوكولات التوجيه الثابت والديناميكي (OSPF و RIP)',
+          'تكوين عزل الشبكات VLANs وتفعيل الربط Trunking (802.1Q) والتوجيه الداخلي Inter-VLAN',
+          'استكشاف وحل مشكلات الاتصال وقوائم التحكم بالوصول (ACLs) واختبار الأداء'
+        ],
+        icon: 'network',
+        githubUrl: 'https://github.com/khaled-ezzat'
+      }
+    ]
   },
   experience: {
     title: 'الخبرة العملية',

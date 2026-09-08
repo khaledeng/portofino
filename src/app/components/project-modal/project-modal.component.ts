@@ -19,7 +19,7 @@ import { IconComponent } from '../../shared/icons/icon.component';
               <span class="modal-category">{{ project.category }}</span>
             </div>
 
-            <button type="button" class="close-btn" (click)="close.emit()" aria-label="Close project modal">
+            <button type="button" class="close-btn" (click)="close.emit()" [attr.aria-label]="currentLang === 'ar' ? 'إغلاق تفاصيل المشروع' : 'Close project modal'">
               <app-icon name="close" [size]="20" strokeMode="currentColor"></app-icon>
             </button>
           </div>
